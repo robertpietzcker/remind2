@@ -6,3 +6,7 @@
 ^\.github$
 ^codecov\.yml$
 ^\.pre-commit-config\.yaml$
+^workflow$
+^.lintr$
+^tests/.lintr$
+^vignettes/.lintr$
