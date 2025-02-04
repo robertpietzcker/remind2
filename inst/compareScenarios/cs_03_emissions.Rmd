@@ -25,7 +25,7 @@ showLinePlots(data, "Emi|GHG|w/ Bunkers")
 ```
 
 ```{r GHG - total with national LULUCF accounting - should match UNFCCC reporting}
-showLinePlots(data, "Emi|GHG|w/ Bunkers|LULUCF national accounting")
+showLinePlots(data, "Emi|GHG|w/ Bunkers|LULUCF national accounting", histVars = "Emi|GHG|w/ Bunkers")
 ```
 
 
@@ -394,6 +394,21 @@ walk(items, showLinePlots, data = data)
 
 ### Cumulated Emissions
 
+```{r CO2 Cumulated bar plots}
+tot <- "Emi|CO2|Cumulated"
+items <- c(
+  "Emi|CO2|Cumulated|Gross|Energy and Industrial Processes",
+  "Emi|CO2|Cumulated|Land-Use Change",
+  "Emi|CO2|Cumulated|CDR|BECCS|Pe2Se",
+  "Emi|CO2|Cumulated|CDR|BECCS|Industry",
+  "Emi|CO2|Cumulated|CDR|Industry CCS|Synthetic Fuels",
+  "Emi|CO2|Cumulated|CDR|DACCS",
+  "Emi|CO2|Cumulated|CDR|OAE",
+  "Emi|CO2|Cumulated|CDR|EW")
+showAreaAndBarPlots(data, items, tot, scales = "fixed")
+```
+
+
 ```{r CO2 Cumulated}
 d <-
   data %>%
@@ -409,7 +424,6 @@ d <-
 showLinePlots(d)
 ```
 
-
 ```{r CO2 Cumulated Subcategories}
 cdrVars <-
   levels(data$variable) %>%
@@ -417,19 +431,6 @@ cdrVars <-
 walk(cdrVars, showLinePlots, data = data)
 ```
 
-```{r CO2 Cumulated bar plots}
-tot <- "Emi|CO2|Cumulated"
-items <- c(
-  "Emi|CO2|Cumulated|Gross|Energy and Industrial Processes",
-  "Emi|CO2|Cumulated|Land-Use Change",
-  "Emi|CO2|Cumulated|CDR|BECCS|Pe2Se",
-  "Emi|CO2|Cumulated|CDR|BECCS|Industry",
-  "Emi|CO2|Cumulated|CDR|Industry CCS|Synthetic Fuels",
-  "Emi|CO2|Cumulated|CDR|DACCS",
-  "Emi|CO2|Cumulated|CDR|OAE",
-  "Emi|CO2|Cumulated|CDR|EW")
-showAreaAndBarPlots(data, items, tot, scales = "fixed")
-```
 
 ## Market Emissions
 
